@@ -2,11 +2,10 @@
 import 'package:flutter/material.dart';
 //local import
 import 'package:playstationapp/homePage/backGround.dart';
-import 'package:playstationapp/homePage/topNavigation.dart';
 import 'appbar.dart';
 import 'bottomNavigation.dart';
-import 'cardList.dart';
 import 'heading.dart';
+import "package:playstationapp/homePage/productField.dart";
 
 
 class HomePage extends StatelessWidget {
@@ -33,10 +32,8 @@ class HomePage extends StatelessWidget {
                 Expanded(child: NavBar(),flex: 1,),
                 //----------Heading -------------
                 Expanded(child: Heading(width:width),flex: 2,),
-                //----------top nav bar------------
-                Expanded(child: TopNavigation(),flex: 2,),
-                //----------item list--------------
-                Expanded(child: CardList(),flex: 9,),
+                //----------product filed-----------
+                Expanded(flex:11 ,child:Product() ),
                 //----------bottom bar--------------
                 Expanded(child: BottomNavigation(),flex: 2,)
               ],

@@ -6,8 +6,6 @@ import 'package:websafe_svg/websafe_svg.dart';
 class Features extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 18),
       child: Row(
@@ -65,7 +63,7 @@ class Features extends StatelessWidget {
 class FeatureCard extends StatelessWidget {
   final double padding;
   final String img, mainText, subText;
-  FeatureCard({this.img, this.mainText, this.subText,this.padding});
+  FeatureCard({this.img, this.mainText, this.subText, this.padding});
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;

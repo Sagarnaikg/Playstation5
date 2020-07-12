@@ -4,27 +4,107 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:playstationapp/globalVariable.dart';
 
+// ignore: must_be_immutable
 class CardList extends StatelessWidget {
+  String name;
+
+  CardList({this.name});
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
 
-    return Container(
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: <Widget>[
-          ItemCard(width: width, img: "assets/controllerBlack.png",),
-          ItemCard(width: width, img: "assets/controllerBlack.png",),
-          ItemCard(width: width, img: "assets/controllerBlack.png",),
-          ItemCard(width: width, img: "assets/controllerBlack.png",),
-          ItemCard(width: width, img: "assets/controllerBlack.png",),
-        ],
-      ),
-    );
+    if (name == "console") {
+      return Container(
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            ItemCard(
+              width: width,
+              img: "assets/controllerBlack1.png",
+            ),
+            ItemCard(
+              width: width,
+              img: "assets/controllerGreen.png",
+            ),
+            ItemCard(
+              width: width,
+              img: "assets/controllerBlack.png",
+            ),
+            ItemCard(
+              width: width,
+              img: "assets/controllerBlack1.png",
+            ),
+            ItemCard(
+              width: width,
+              img: "assets/controllerGreen.png",
+            ),
+            ItemCard(
+              width: width,
+              img: "assets/controllerBlack.png",
+            ),
+          ],
+        ),
+      );
+    } else if (name == "mouse") {
+      return Container(
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            ItemCard(
+              width: width,
+              img: "assets/mouse.png",
+            ),
+            ItemCard(
+              width: width,
+              img: "assets/mouse1.png",
+            ),
+            ItemCard(
+              width: width,
+              img: "assets/mouse2.png",
+            ),
+            ItemCard(
+              width: width,
+              img: "assets/mouse.png",
+            ),
+            ItemCard(
+              width: width,
+              img: "assets/mouse1.png",
+            ),
+            ItemCard(
+              width: width,
+              img: "assets/mouse2.png",
+            ),
+          ],
+        ),
+      );
+    } else if (name == "headset") {
+      return Container(
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            ItemCard(
+              width: width,
+              img: "assets/headset.png",
+            ),
+            ItemCard(
+              width: width,
+              img: "assets/headset.png",
+            ),
+            ItemCard(
+              width: width,
+              img: "assets/headset.png",
+            ),
+            ItemCard(
+              width: width,
+              img: "assets/headset.png",
+            ),
+          ],
+        ),
+      );
+    }
   }
 }
-
-
 
 // ignore: must_be_immutable
 class ItemCard extends StatelessWidget {
@@ -53,7 +133,7 @@ class ItemCard extends StatelessWidget {
       child: FlatButton(
         splashColor: Color(0x15111111),
         highlightColor: Colors.transparent,
-        onPressed: (){
+        onPressed: () {
           Navigator.pushNamed(context, "productPage");
         },
         child: Column(
