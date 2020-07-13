@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 //local import
 import 'package:playstationapp/homePage/backGround.dart';
-import 'package:playstationapp/productPage/appbar.dart';
 import 'appbar.dart';
 import 'bottomNavigation.dart';
 import 'heading.dart';
@@ -25,9 +24,6 @@ class HomePage extends StatelessWidget {
           SafeArea(
             child: Column(
               children: <Widget>[
-                SizedBox(
-                  height: 7,
-                ),
                 //-----------app bar------------
                 Expanded(
                   child: NavBar(),

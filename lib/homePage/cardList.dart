@@ -15,35 +15,41 @@ class CardList extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
 
     if (name == "console") {
-      return Container(
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: <Widget>[
-            ItemCard(
-              width: width,
-              img: "assets/controllerBlack1.png",
-            ),
-            ItemCard(
-              width: width,
-              img: "assets/controllerGreen.png",
-            ),
-            ItemCard(
-              width: width,
-              img: "assets/controllerBlack.png",
-            ),
-            ItemCard(
-              width: width,
-              img: "assets/controllerBlack1.png",
-            ),
-            ItemCard(
-              width: width,
-              img: "assets/controllerGreen.png",
-            ),
-            ItemCard(
-              width: width,
-              img: "assets/controllerBlack.png",
-            ),
-          ],
+      return NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (OverscrollIndicatorNotification overscroll) {
+          overscroll.disallowGlow();
+          return;
+        },
+        child: Container(
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: <Widget>[
+              ItemCard(
+                width: width,
+                img: "assets/controllerBlack1.png",
+              ),
+              ItemCard(
+                width: width,
+                img: "assets/controllerGreen.png",
+              ),
+              ItemCard(
+                width: width,
+                img: "assets/controllerBlack.png",
+              ),
+              ItemCard(
+                width: width,
+                img: "assets/controllerBlack1.png",
+              ),
+              ItemCard(
+                width: width,
+                img: "assets/controllerGreen.png",
+              ),
+              ItemCard(
+                width: width,
+                img: "assets/controllerBlack.png",
+              ),
+            ],
+          ),
         ),
       );
     } else if (name == "mouse") {
