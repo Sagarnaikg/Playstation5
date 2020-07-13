@@ -10,8 +10,8 @@ class BottomNavigation extends StatefulWidget {
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
-  int selectedIndex = 3;
-  List<int> flexList = [1, 1, 1, 2];
+  int selectedIndex = 0;
+  List<int> flexList = [2, 1, 1, 1];
 
   @override
   Widget build(BuildContext context) {
