@@ -2,6 +2,10 @@
 
 online shopping app for playstation products .
 
+# About the project 
+
+The apllication provides 
+
 # Interface of the application
 <div style="display:flex;" >
 <img src="https://github.com/Sagarnaikg/Playstation5/blob/master/scrren1.png" width=200px />
