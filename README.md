@@ -1,6 +1,6 @@
-# playstationapp
+# playstation5 application
 
-online shopping app for playstation products
+online shopping app for playstation products .
 
 # Interface of the application
 <div style="display:flex;" >
