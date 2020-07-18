@@ -8,12 +8,18 @@ import 'package:playstationapp/productPage/infomation.dart';
 import 'package:playstationapp/productPage/features.dart';
 import 'package:playstationapp/productPage/priceTage.dart';
 
+class ProductPage extends StatefulWidget {
+  @override
+  _ProductPageState createState() => _ProductPageState();
+}
 
+class _ProductPageState extends State<ProductPage> {
+  Map data = {};
 
-
-class ProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    data = ModalRoute.of(context).settings.arguments;
+
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
@@ -37,24 +43,24 @@ class ProductPage extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 7,
-                  child: Product(),
+                  child: Product(
+                    img: data["img"],
+                    releaseDate: data["releaseDate"],
+                    price: data["price"],
+                  ),
                 ),
                 Expanded(
                   flex: 6,
                   child: Column(
                     children: <Widget>[
-                      Expanded(
-                        flex:5 ,
-                          child: Info()),
-                      Expanded(
-                        flex:8,
-                          child: Features())
+                      Expanded(flex: 5, child: Info()),
+                      Expanded(flex: 8, child: Features())
                     ],
                   ),
                 ),
                 Expanded(
-                  flex: 2 ,
-                  child: PriceTage(),
+                  flex: 2,
+                  child: PriceTage(price: data["price"]),
                 )
               ],
             ),

@@ -4,10 +4,17 @@ import 'package:playstationapp/globalVariable.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 // ignore: must_be_immutable
-class Product extends StatelessWidget {
+class Product extends StatefulWidget {
+  String img, releaseDate, price;
+  Product({this.img, this.releaseDate, this.price});
+  @override
+  _ProductState createState() => _ProductState();
+}
 
-  final double mainTextSize=19,subTextSize=18;
-  Color subClr=Color(0xccD7E3EE);
+class _ProductState extends State<Product> {
+  final double mainTextSize = 19, subTextSize = 18;
+
+  Color subClr = Color(0xccD7E3EE);
 
   @override
   Widget build(BuildContext context) {
@@ -28,55 +35,58 @@ class Product extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text("PLAYSTATION",
-                    style: TextStyle(
-                      fontSize: mainTextSize,
-                      color: Color(0xffE7F3FF ),
-                      fontWeight: FontWeight.bold
-                    ),),
-                    Text("PS5",
-                    style: TextStyle(
-                        fontSize: subTextSize,
-                        color:subClr /*Color(0xaa6E3EF)*/,
-                      fontWeight: FontWeight.bold
-
-                    ),)
+                    Text(
+                      "PLAYSTATION",
+                      style: TextStyle(
+                          fontSize: mainTextSize,
+                          color: Color(0xffE7F3FF),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "PS5",
+                      style: TextStyle(
+                          fontSize: subTextSize,
+                          color: subClr /*Color(0xaa6E3EF)*/,
+                          fontWeight: FontWeight.bold),
+                    )
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text("RELEASE",
+                    Text(
+                      "RELEASE",
                       style: TextStyle(
                           fontSize: mainTextSize,
-                          color: Color(0xffE7F3FF ),
-                          fontWeight: FontWeight.bold
-                      ),),
-                    Text("Fall 2020",
+                          color: Color(0xffE7F3FF),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      widget.releaseDate,
                       style: TextStyle(
                           fontSize: subTextSize,
-                          color:subClr /*Color(0xaa6E3EF)*/,
-                          fontWeight: FontWeight.bold
-
-                      ),)
+                          color: subClr /*Color(0xaa6E3EF)*/,
+                          fontWeight: FontWeight.bold),
+                    )
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text("PRICE",
+                    Text(
+                      "PRICE",
                       style: TextStyle(
                           fontSize: mainTextSize,
-                          color: Color(0xffE7F3FF ),
-                          fontWeight: FontWeight.bold
-                      ),),
-                    Text("\$ 50",
+                          color: Color(0xffE7F3FF),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "\$ ${widget.price}",
                       style: TextStyle(
                           fontSize: subTextSize,
-                          color:subClr/*Color(0xaa6E3EF)*/,
-                          fontWeight: FontWeight.bold
-
-                      ),)
+                          color: subClr /*Color(0xaa6E3EF)*/,
+                          fontWeight: FontWeight.bold),
+                    )
                   ],
                 ),
                 MenuIcon(
@@ -94,17 +104,17 @@ class Product extends StatelessWidget {
           Expanded(
             flex: 12,
             child: Container(
-              height: height*0.35,
+              height: height * 0.35,
               child: Stack(
                 children: [
                   Image.asset(
-                    "assets/controllerProduct.png",
-                    height:height*0.5,
+                    widget.img,
+                    height: height * 0.5,
                     color: Colors.black,
                   ),
                   Image.asset(
-                    "assets/controllerProduct.png",
-                    height: height*0.5,
+                    widget.img,
+                    height: height * 0.5,
                   ),
                 ],
               ),
@@ -116,7 +126,6 @@ class Product extends StatelessWidget {
   }
 }
 
-
 class MenuIcon extends StatelessWidget {
   final double width, height;
   final String image;
@@ -124,12 +133,12 @@ class MenuIcon extends StatelessWidget {
 
   MenuIcon(
       {this.image,
-        this.height,
-        this.width,
-        this.gradLight,
-        this.gradDark,
-        this.shadowDark,
-        this.gradInnerLight});
+      this.height,
+      this.width,
+      this.gradLight,
+      this.gradDark,
+      this.shadowDark,
+      this.gradInnerLight});
 
   @override
   Widget build(BuildContext context) {
@@ -162,7 +171,7 @@ class MenuIcon extends StatelessWidget {
                 end: Alignment.bottomRight,
                 colors: [gradInnerLight, backDark])),
       ),
-      WebsafeSvg.asset(image,width: width,height: height)
+      WebsafeSvg.asset(image, width: width, height: height)
     ]);
   }
 }

@@ -25,29 +25,41 @@ class CardList extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             children: <Widget>[
               ItemCard(
-                width: width,
-                img: "assets/controllerBlack1.png",
-              ),
+                  width: width,
+                  img: "assets/controllerBlack1.png",
+                  imgVer: "assets/controllerBlackVer.png",
+                  releaseDate: "Fall 2020",
+                  price: "50"),
               ItemCard(
-                width: width,
-                img: "assets/controllerGreen.png",
-              ),
+                  width: width,
+                  img: "assets/controllerGreen.png",
+                  imgVer: "assets/controllerGreenVer.png",
+                  releaseDate: "Mid 2020",
+                  price: "200"),
               ItemCard(
-                width: width,
-                img: "assets/controllerBlack.png",
-              ),
+                  width: width,
+                  img: "assets/controllerBlack.png",
+                  imgVer: "assets/controllerProduct.png",
+                  releaseDate: "End 2020",
+                  price: "150"),
               ItemCard(
-                width: width,
-                img: "assets/controllerBlack1.png",
-              ),
+                  width: width,
+                  img: "assets/controllerBlack1.png",
+                  imgVer: "assets/controllerBlackVer.png",
+                  releaseDate: "Fall 2020",
+                  price: "50"),
               ItemCard(
-                width: width,
-                img: "assets/controllerGreen.png",
-              ),
+                  width: width,
+                  img: "assets/controllerGreen.png",
+                  imgVer: "assets/controllerGreenVer.png",
+                  releaseDate: "Mid 2020",
+                  price: "200"),
               ItemCard(
-                width: width,
-                img: "assets/controllerBlack.png",
-              ),
+                  width: width,
+                  img: "assets/controllerBlack.png",
+                  imgVer: "assets/controllerProduct.png",
+                  releaseDate: "End 2020",
+                  price: "150"),
             ],
           ),
         ),
@@ -58,29 +70,29 @@ class CardList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           children: <Widget>[
             ItemCard(
-              width: width,
-              img: "assets/mouse.png",
-            ),
+                width: width,
+                img: "assets/mouse.png",
+                imgVer: "assets/mouseVer.png",
+                releaseDate: "Fall 2020",
+                price: "25"),
             ItemCard(
-              width: width,
-              img: "assets/mouse1.png",
-            ),
+                width: width,
+                img: "assets/mouse.png",
+                imgVer: "assets/mouseVer.png",
+                releaseDate: "Fall 2020",
+                price: "25"),
             ItemCard(
-              width: width,
-              img: "assets/mouse2.png",
-            ),
+                width: width,
+                img: "assets/mouse.png",
+                imgVer: "assets/mouseVer.png",
+                releaseDate: "Fall 2020",
+                price: "25"),
             ItemCard(
-              width: width,
-              img: "assets/mouse.png",
-            ),
-            ItemCard(
-              width: width,
-              img: "assets/mouse1.png",
-            ),
-            ItemCard(
-              width: width,
-              img: "assets/mouse2.png",
-            ),
+                width: width,
+                img: "assets/mouse.png",
+                imgVer: "assets/mouseVer.png",
+                releaseDate: "Fall 2020",
+                price: "25"),
           ],
         ),
       );
@@ -90,21 +102,35 @@ class CardList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           children: <Widget>[
             ItemCard(
-              width: width,
-              img: "assets/headset.png",
-            ),
+                width: width,
+                img: "assets/headset.png",
+                imgVer: "assets/headsetVer.png",
+                releaseDate: "Mid 2020",
+                price: "70"),
             ItemCard(
-              width: width,
-              img: "assets/headset.png",
-            ),
+                width: width,
+                img: "assets/headset.png",
+                imgVer: "assets/headsetVer.png",
+                releaseDate: "Mid 2020",
+                price: "70"),
             ItemCard(
-              width: width,
-              img: "assets/headset.png",
-            ),
+                width: width,
+                img: "assets/headset.png",
+                imgVer: "assets/headsetVer.png",
+                releaseDate: "Mid 2020",
+                price: "70"),
             ItemCard(
-              width: width,
-              img: "assets/headset.png",
-            ),
+                width: width,
+                img: "assets/headset.png",
+                imgVer: "assets/headsetVer.png",
+                releaseDate: "Mid 2020",
+                price: "70"),
+            ItemCard(
+                width: width,
+                img: "assets/headset.png",
+                imgVer: "assets/headsetVer.png",
+                releaseDate: "Mid 2020",
+                price: "70"),
           ],
         ),
       );
@@ -115,9 +141,9 @@ class CardList extends StatelessWidget {
 // ignore: must_be_immutable
 class ItemCard extends StatelessWidget {
   final double width;
-  String img;
+  String img, imgVer, releaseDate, price;
 
-  ItemCard({this.width, this.img});
+  ItemCard({this.width, this.img, this.imgVer, this.releaseDate, this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -140,7 +166,11 @@ class ItemCard extends StatelessWidget {
         splashColor: Color(0x15111111),
         highlightColor: Colors.transparent,
         onPressed: () {
-          Navigator.pushNamed(context, "productPage");
+          Navigator.pushNamed(context, "productPage", arguments: {
+            "img": imgVer,
+            "releaseDate": releaseDate,
+            "price": price
+          });
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

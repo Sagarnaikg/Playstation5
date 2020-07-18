@@ -3,7 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:playstationapp/globalVariable.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
-class PriceTage extends StatelessWidget {
+class PriceTage extends StatefulWidget {
+  String price;
+  PriceTage({this.price});
+
+  @override
+  _PriceTageState createState() => _PriceTageState();
+}
+
+class _PriceTageState extends State<PriceTage> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -38,7 +46,7 @@ class PriceTage extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Expanded(
-                child: Price(),
+                child: Price(price: widget.price),
               ),
               Expanded(
                 child: OrderButton(),
@@ -52,6 +60,9 @@ class PriceTage extends StatelessWidget {
 }
 
 class Price extends StatelessWidget {
+  final String price;
+  Price({this.price});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -64,7 +75,7 @@ class Price extends StatelessWidget {
             width: 3,
           ),
           Text(
-            "50",
+            price,
             style: TextStyle(
                 color: Color(0xffB2BAC2),
                 fontWeight: FontWeight.bold,
